@@ -9,17 +9,43 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ 
+  
+  <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand">
-            <img src="https://images.vexels.com/media/users/3/136553/isolated/preview/c315314f865458b657940a0729a77949-icono-de-contacto-principal-de-personas.png" width="100px" height="70px" alt="contactos">
+      <a class="navbar-brand">
+        <img src="https://images.vexels.com/media/users/3/136553/isolated/preview/c315314f865458b657940a0729a77949-icono-de-contacto-principal-de-personas.png" width="100px" height="50px" alt="contactos">
             Contactos
-      </a>
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contactos/contactos.html">Ver contactos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tareas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../login.html">Cerrar Sesion</a>
+            </li>
+          </div>
+      </div>
     </div>
   </nav>
-
-  <div class="container mt-4">
+  <br>
+  <br>
+  <div class="container mt-5">
     <ol class="list-group list-group-numbered contact-list">
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzLwpKcq8-BFDFR57mPJWGS53mhSkaGpz7JA&s" class="rounded-circle me-3" alt="Juan Pérez" style="width: 70px; height: 70px;">
@@ -128,7 +154,7 @@
     </ol>
 
     <div class="text-end mt-4">
-        <a href="detalle_contacto.html" class="btn btn-outline-danger ">Agregar Contacto</a>
+        <a href="../nuevosContactos/nuevoContacto.html" class="btn btn-outline-danger ">Agregar Contacto</a>
     </div>
   </div>
 
