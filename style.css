@@ -1,8 +1,8 @@
 body {
-    background-image: url(https://www.xtrafondos.com/wallpapers/cristiano-ronaldo-3265.jpg);
-    background-repeat: no-repeat; /* No repetir la imagen */
-    background-size: cover; /* La imagen cubre toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    height: 100vh; /* Asegura que el fondo cubra todo el alto de la pantalla */
-    margin: 0; /* Elimina los márgenes predeterminados del body */
+    background-image: url(https://www.xtrafondos.com/wallpapers/apple-pro-display-xdr-abstracto-3294.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+    height: 100vh;
+    margin: 0; 
 }
