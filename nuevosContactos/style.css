@@ -1,35 +1,26 @@
-/* Fondo de la página */
 body {
-    background-image: url(https://www.xtrafondos.com/wallpapers/color-fluyendo-6052.jpg);
+    background-image: url(https://wallpapers.com/images/hd/beautiful-riverscape-and-sky-jviafmn3g2h89sqg.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
     height: 100vh;
     margin: 0;
-    color: white; /* Aseguramos que todo el texto por defecto sea blanco */
+    color: white; 
 }
 
-/* Estilo para el formulario */
+
 .container {
     margin-top: 100px;
 }
 
 label {
-    color: white !important; /* Aseguramos que las etiquetas también sean blancas */
+    color: white !important; 
 }
 
 .form-control {
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo más oscuro para los campos */
+    background-color: rgba(255, 255, 255, 0.2); 
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde blanco */
+    border: 1px solid rgba(255, 255, 255, 0.5); 
 }
 
-.btn-primary {
-    background-color: #e50076;
-    border-color: #e50076;
-}
 
-.btn-primary:hover {
-    background-color: rgba(67,128,141,255);
-    border-color: rgba(67,128,141,255);
-}

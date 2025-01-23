@@ -1,8 +1,17 @@
 body{
-    background-image: url(https://www.xtrafondos.com/wallpapers/apple-pro-display-xdr-abstracto-3293.jpg);
+    background-image: url(https://wallpapers.com/images/hd/beautiful-riverscape-and-sky-jviafmn3g2h89sqg.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
     height: 100vh;
     margin: 0; 
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
 }
