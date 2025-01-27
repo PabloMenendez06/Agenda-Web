@@ -1,0 +1,63 @@
+body {
+    background-image: url(https://wallpapers.com/images/hd/beautiful-riverscape-and-sky-jviafmn3g2h89sqg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+    height: 100vh;
+    margin: 0; 
+}
+
+.priority {
+    font-size: 0.9em;
+    padding: 3px 6px;
+    border-radius: 5px;
+    color: white;
+}
+
+.high { background: red; }
+.medium { background: orange; }
+.low { background: green; }
+
+.form-control,
+.form-select {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
+    color: black; /* Texto blanco */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde semitransparente */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo más claro al enfocar */
+    border-color: white; /* Borde blanco al enfocar */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Efecto de brillo */
+}
+
+
+
+.list-group-item {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente para las tareas */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 10px;
+}
+
+.list-group-item .btn {
+    border-radius: 5px; /* Bordes más suaves para los botones */
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item .btn-warning:hover {
+    background-color: orange;
+    color: white;
+}
+
+.list-group-item .btn-danger:hover {
+    background-color: red;
+    color: white;
+}
+
