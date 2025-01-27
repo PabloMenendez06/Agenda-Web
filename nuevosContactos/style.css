@@ -1,0 +1,26 @@
+body {
+    background-image: url(https://wallpapers.com/images/hd/beautiful-riverscape-and-sky-jviafmn3g2h89sqg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+    height: 100vh;
+    margin: 0;
+    color: white; 
+}
+
+
+.container {
+    margin-top: 100px;
+}
+
+label {
+    color: white !important; 
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+}
+
+
