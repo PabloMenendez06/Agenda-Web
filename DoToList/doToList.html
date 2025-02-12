@@ -68,105 +68,114 @@
 
 <script>
     $(document).ready(function () {
-    loadTasks();
-
-    $('#addTaskBtn').click(function () {
-        const task = $('#taskInput').val().trim();
-        const priority = convertPriorityToKey($('#priorityInput').val().toLowerCase().trim());
-        if (task && priority) {
-            addTask(task, priority);
-            $('#taskInput').val('');
-            $('#priorityInput').val('');
-        }
-    });
-
-    $('#taskInput').keypress(function (e) {
-        if (e.which === 13) {
-            $('#addTaskBtn').click();
-        }
-    });
-
-    function addTask(task, priority) {
-        const priorityLabel = getPriorityLabel(priority);
-        const taskItem = `<li class="list-group-item d-flex justify-content-between align-items-center" data-priority="${priority}">
-            <span class="task-text">${task}</span>
-            <div>
-                <span class="priority ${priority}">${priorityLabel}</span>
-                <button class="btn btn-warning btn-sm editBtn">Editar</button>
-                <button class="btn btn-danger btn-sm deleteBtn">X</button>
-            </div>
-        </li>`;
-        $('#taskList').append(taskItem);
-        saveTasks();
-        sortTasks();
-    }
-
-    function getPriorityLabel(priority) {
-        switch (priority) {
-            case 'high': return 'Alta';
-            case 'medium': return 'Media';
-            case 'low': return 'Baja';
-        }
-    }
-
-    function saveTasks() {
-        const tasks = [];
-        $('#taskList li').each(function () {
-            const task = $(this).find('.task-text').text();
-            const priority = $(this).data('priority');
-            tasks.push({ task, priority });
+        
+        loadTasks();
+    
+        
+        $('#addTaskBtn').click(function () {
+            const task = $('#taskInput').val().trim();
+            const priority = $('#priorityInput').val(); 
+            if (task) {
+                addTask(task, priority);
+                $('#taskInput').val(''); 
+            }
         });
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
-
-    function loadTasks() {
-        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        tasks.forEach(task => addTask(task.task, task.priority));
-    }
-
-    function sortTasks() {
-        const taskItems = $('#taskList li').get();
-        taskItems.sort((a, b) => {
-            const priorityOrder = { high: 1, medium: 2, low: 3 };
-            return priorityOrder[$(a).data('priority')] - priorityOrder[$(b).data('priority')];
+    
+        
+        $('#taskInput').keypress(function (e) {
+            if (e.which === 13) {
+                $('#addTaskBtn').click();
+            }
         });
-        $('#taskList').empty().append(taskItems);
-    }
+    
+        
+        function addTask(task, priority) {
+            const priorityLabel = getPriorityLabel(priority); 
+            const taskItem = `<li class="list-group-item d-flex justify-content-between align-items-center" data-priority="${priority}">
+                <span class="task-text">${task}</span>
+                <div>
+                    <span class="priority ${priority}">${priorityLabel}</span>
+                    <button class="btn btn-warning btn-sm editBtn">Editar</button>
+                    <button class="btn btn-danger btn-sm deleteBtn">X</button>
+                </div>
+            </li>`;
+            $('#taskList').append(taskItem);
+            saveTasks();
+            sortTasks(); 
+        }
+    
+        
+        function getPriorityLabel(priority) {
+            switch (priority) {
+                case 'high': return 'Alta';
+                case 'medium': return 'Media';
+                case 'low': return 'Baja';
+            }
+        }
+    
+        
+        function saveTasks() {
+            const tasks = [];
+            $('#taskList li').each(function () {
+                const task = $(this).find('.task-text').text();
+                const priority = $(this).data('priority');
+                tasks.push({ task, priority });
+            });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+    
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.forEach(task => addTask(task.task, task.priority));
+        }
+    
 
-    $('#taskList').on('click', '.editBtn', function () {
-        const taskItem = $(this).closest('li');
-        const currentTask = taskItem.find('.task-text').text();
-        const currentPriority = taskItem.data('priority');
+        function sortTasks() {
+            const taskItems = $('#taskList li').get();
+            taskItems.sort((a, b) => {
+                const priorityOrder = { high: 1, medium: 2, low: 3 };
+                return priorityOrder[$(a).data('priority')] - priorityOrder[$(b).data('priority')];
+            });
+            $('#taskList').empty().append(taskItems);
+        }
+    
 
-        const newTask = prompt('Editar tarea:', currentTask);
-        if (newTask !== null) {
-            const newPriority = prompt('Editar prioridad (Alta, Media, Baja):', getPriorityLabel(currentPriority));
-            if (newPriority && ['alta', 'media', 'baja'].includes(newPriority.toLowerCase())) {
-                const newPriorityKey = convertPriorityToKey(newPriority.toLowerCase());
-                taskItem.find('.task-text').text(newTask);
-                taskItem.data('priority', newPriorityKey);
-                taskItem.find('.priority').text(newPriority).removeClass('high medium low').addClass(newPriorityKey);
-                saveTasks();
-                sortTasks();
+        $('#taskList').on('click', '.editBtn', function () {
+            const taskItem = $(this).closest('li');
+            const currentTask = taskItem.find('.task-text').text();
+            const currentPriority = taskItem.data('priority');
+    
+            const newTask = prompt('Editar tarea:', currentTask);
+            if (newTask !== null) {
+                const newPriority = prompt('Editar prioridad (alta, media, baja):', currentPriority);
+                if (newPriority && ['alta', 'media', 'baja'].includes(newPriority)) {
+                    const newPriorityKey = convertPriorityToKey(newPriority); // Convertir a clave en inglés
+                    taskItem.find('.task-text').text(newTask);
+                    taskItem.data('priority', newPriorityKey);
+                    taskItem.find('.priority').text(newPriority).removeClass('high medium low').addClass(newPriorityKey);
+                    saveTasks();
+                    sortTasks();
+                }
+            }
+        });
+    
+
+        $('#taskList').on('click', '.deleteBtn', function () {
+            $(this).parent().parent().remove();
+            saveTasks();
+        });
+    
+
+        function convertPriorityToKey(priority) {
+            switch (priority) {
+                case 'alta': return 'high';
+                case 'media': return 'medium';
+                case 'baja': return 'low';
             }
         }
     });
-
-    $('#taskList').on('click', '.deleteBtn', function () {
-        $(this).parent().parent().remove();
-        saveTasks();
-    });
-
-    function convertPriorityToKey(priority) {
-        switch (priority) {
-            case 'alta': return 'high';
-            case 'media': return 'medium';
-            case 'baja': return 'low';
-        }
-    }
-});
-
     </script>
+    
     
     
 
